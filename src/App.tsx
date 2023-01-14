@@ -6,9 +6,13 @@ import { HelmetProvider, Helmet } from "react-helmet-async";
 import { QuotesType } from "./types";
 import Quote from "./components/Quote";
 import BackgroundDayMobile from "./img/mobile/bg-image-daytime.jpg";
+import Clock from "./components/Clock";
+import Button from "./components/Button";
+import Details from "./components/Details";
 
 function App() {
   const [quote, setQuote] = useState<QuotesType>();
+  const [detailsOpener, setDetailsOpener] = useState<boolean>(false);
 
   const getQuote = async () => {
     const receivedQuote = await axios.get("https://api.quotable.io/random");
@@ -33,7 +37,13 @@ function App() {
 
       <MainContainer>
         <Container>
-          <Quote quote={quote} getQuote={getQuote} />
+          {detailsOpener ? <Quote quote={quote} getQuote={getQuote} /> : null}
+          <Clock />
+          <Button
+            detailsOpener={detailsOpener}
+            setDetailsOpener={setDetailsOpener}
+          />
+          {detailsOpener ? null : <Details />}
         </Container>
       </MainContainer>
     </>
@@ -45,6 +55,7 @@ export default App;
 const MainContainer = styled.main`
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   background-image: url(${BackgroundDayMobile});
   background-repeat: no-repeat;
   background-position: top left;

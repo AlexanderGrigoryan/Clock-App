@@ -30,6 +30,7 @@ const Container = styled.div`
   width: 100%;
   justify-content: space-between;
   padding-top: 32px;
+  margin-bottom: 128px;
 `;
 
 const Content = styled.div`
