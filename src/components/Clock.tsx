@@ -8,6 +8,9 @@ function Clock() {
       <Greetings>
         <Icon src={Sun} alt="sun icon" />
         <GreetingsText>GOOD MORNING</GreetingsText>
+        <GreetingsTextDesktop>
+          GOOD MORNING, IT'S CURRENTLY
+        </GreetingsTextDesktop>
       </Greetings>
       <Time>
         <TimeClock>11:37</TimeClock>
@@ -25,6 +28,11 @@ const Container = styled.div`
   flex-direction: column;
   row-gap: 16px;
   padding-top: 99px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 153px;
+    row-gap: 0;
+  }
 `;
 
 const Greetings = styled.div`
@@ -40,6 +48,29 @@ const GreetingsText = styled.p`
   line-height: 25px;
   letter-spacing: 3px;
   color: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 3.5999999046325684px;
+    display: none;
+  }
+`;
+
+const GreetingsTextDesktop = styled.p`
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 3px;
+  color: #ffffff;
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 3.5999999046325684px;
+    display: block;
+  }
 `;
 
 const Time = styled.div`
@@ -53,6 +84,12 @@ const TimeClock = styled.p`
   line-height: 100px;
   letter-spacing: -2.5px;
   color: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    font-size: 175px;
+    line-height: 175px;
+    letter-spacing: 4.38px;
+  }
 `;
 
 const TimeZone = styled.p`
@@ -61,6 +98,11 @@ const TimeZone = styled.p`
   line-height: 28px;
   color: #ffffff;
   align-self: flex-end;
+
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+    line-height: 28px;
+  }
 `;
 
 const Location = styled.p`
@@ -69,4 +111,9 @@ const Location = styled.p`
   line-height: 28px;
   letter-spacing: 3px;
   color: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    letter-spacing: 3.6px;
+  }
 `;

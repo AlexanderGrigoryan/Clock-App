@@ -14,7 +14,7 @@ function Button(props: Props) {
   return (
     <Container>
       <DetailsButton onClick={() => setDetailsOpener(!detailsOpener)}>
-        <ButtonText>{detailsOpener ? "MORE" : "LESS"}</ButtonText>
+        <ButtonText>{detailsOpener ? "LESS" : "MORE"}</ButtonText>
         {detailsOpener ? (
           <Circle>
             <ArrowDown src={IconDown} alt="arrow down icon" />
@@ -31,6 +31,10 @@ export default Button;
 
 const Container = styled.div`
   margin: 48px 0 40px;
+
+  @media screen and (min-width: 768px) {
+    margin: 80px 0 64px;
+  }
 `;
 
 const DetailsButton = styled.button`
@@ -44,6 +48,12 @@ const DetailsButton = styled.button`
   padding: 0 4px 0 17px;
   border: none;
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    width: 146px;
+    height: 56px;
+    padding: 0 9px 0 24px;
+  }
 `;
 
 const ButtonText = styled.p`
@@ -54,11 +64,22 @@ const ButtonText = styled.p`
   letter-spacing: 3.75px;
   color: #000000;
   opacity: 0.5;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 5px;
+  }
 `;
 
 const ArrowUp = styled.img`
   width: 32px;
   height: 32px;
+
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 const ArrowDown = styled.img``;
@@ -71,4 +92,9 @@ const Circle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
 `;

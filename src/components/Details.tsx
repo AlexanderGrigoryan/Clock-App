@@ -8,17 +8,27 @@ function Details(props: Props) {
     <Container>
       <Content>
         <Titles>
-          <Title>CURRENT TIMEZONE</Title>
-          <Title>Day of the year</Title>
-          <Title>Day of the week</Title>
-          <Title>Week number</Title>
+          <FlexBlock>
+            <Category>
+              <Title>CURRENT TIMEZONE</Title>
+              <Text>Europe/London</Text>
+            </Category>
+            <Category>
+              <Title>Day of the year</Title>
+              <Text>295</Text>
+            </Category>
+          </FlexBlock>
+          <FlexBlock>
+            <Category>
+              <Title>Day of the week</Title>
+              <Text>5</Text>
+            </Category>
+            <Category>
+              <Title>Week number</Title>
+              <Text>42</Text>
+            </Category>
+          </FlexBlock>
         </Titles>
-        <Texts>
-          <Text>Europe/London</Text>
-          <Text>295</Text>
-          <Text>5</Text>
-          <Text>42</Text>
-        </Texts>
       </Content>
     </Container>
   );
@@ -34,18 +44,57 @@ const Container = styled.div`
   position: fixed;
   left: 0;
   bottom: 0;
+
+  @media screen and (min-width: 768px) {
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding-top: 119px; */
+  }
 `;
 
 const Content = styled.div`
   padding: 48px 26px 0 26px;
   display: flex;
   justify-content: space-between;
+  width: 100%;
+`;
+
+const Category = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Titles = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+`;
+
+const FlexBlock = styled.div`
+  display: flex;
+  flex-direction: column;
   row-gap: 16px;
+  margin-bottom: 16px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    row-gap: 49px;
+  }
 `;
 
 const Title = styled.p`
@@ -55,19 +104,23 @@ const Title = styled.p`
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #303030;
-`;
 
-const Texts = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
+  @media screen and (min-width: 768px) {
+    font-size: 13px;
+    letter-spacing: 2.6px;
+  }
 `;
 
 const Text = styled.p`
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
-  letter-spacing: 0px;
   text-align: right;
   color: #303030;
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+    line-height: 48.41px;
+    text-align: left;
+  }
 `;

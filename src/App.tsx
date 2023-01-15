@@ -37,13 +37,13 @@ function App() {
 
       <MainContainer>
         <Container>
-          {detailsOpener ? <Quote quote={quote} getQuote={getQuote} /> : null}
+          {detailsOpener ? null : <Quote quote={quote} getQuote={getQuote} />}
           <Clock />
           <Button
             detailsOpener={detailsOpener}
             setDetailsOpener={setDetailsOpener}
           />
-          {detailsOpener ? null : <Details />}
+          {detailsOpener ? <Details /> : null}
         </Container>
       </MainContainer>
     </>
@@ -67,4 +67,8 @@ const Container = styled.div`
   padding: 0 26px;
   width: 100%;
   height: 100%;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 64px;
+  }
 `;

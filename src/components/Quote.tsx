@@ -27,10 +27,16 @@ export default Quote;
 
 const Container = styled.div`
   display: flex;
+  column-gap: 16.67px;
   width: 100%;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   padding-top: 32px;
   margin-bottom: 128px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 80px;
+    margin-bottom: 235px;
+  }
 `;
 
 const Content = styled.div`
@@ -38,6 +44,10 @@ const Content = styled.div`
   flex-direction: column;
   row-gap: 8px;
   max-width: 290px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 540px;
+  }
 `;
 
 const Text = styled.p`
@@ -45,6 +55,11 @@ const Text = styled.p`
   font-weight: 400;
   line-height: 22px;
   color: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 28px;
+  }
 `;
 
 const Author = styled.p`
@@ -52,6 +67,11 @@ const Author = styled.p`
   font-weight: 700;
   line-height: 22px;
   color: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 28px;
+  }
 `;
 
 const RefreshButton = styled.button`
