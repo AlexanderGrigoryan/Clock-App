@@ -35,6 +35,11 @@ const Container = styled.div`
   @media screen and (min-width: 768px) {
     margin: 80px 0 64px;
   }
+
+  @media screen and (min-width: 1440px) {
+    margin: 0;
+    align-self: flex-end;
+  }
 `;
 
 const DetailsButton = styled.button`

@@ -6,6 +6,8 @@ import { HelmetProvider, Helmet } from "react-helmet-async";
 import { QuotesType } from "./types";
 import Quote from "./components/Quote";
 import BackgroundDayMobile from "./img/mobile/bg-image-daytime.jpg";
+import BackgroundDayTablet from "./img/tablet/bg-image-daytime.jpg";
+import BackgroundDayDesktop from "./img/desktop/bg-image-daytime.jpg";
 import Clock from "./components/Clock";
 import Button from "./components/Button";
 import Details from "./components/Details";
@@ -38,11 +40,13 @@ function App() {
       <MainContainer>
         <Container>
           {detailsOpener ? null : <Quote quote={quote} getQuote={getQuote} />}
-          <Clock />
-          <Button
-            detailsOpener={detailsOpener}
-            setDetailsOpener={setDetailsOpener}
-          />
+          <DesktopContainer>
+            <Clock />
+            <Button
+              detailsOpener={detailsOpener}
+              setDetailsOpener={setDetailsOpener}
+            />
+          </DesktopContainer>
           {detailsOpener ? <Details /> : null}
         </Container>
       </MainContainer>
@@ -60,6 +64,14 @@ const MainContainer = styled.main`
   background-repeat: no-repeat;
   background-position: top left;
   background-size: cover;
+
+  @media screen and (min-width: 768px) {
+    background-image: url(${BackgroundDayTablet});
+  }
+
+  @media screen and (min-width: 1024px) {
+    background-image: url(${BackgroundDayDesktop});
+  }
 `;
 
 const Container = styled.div`
@@ -70,5 +82,16 @@ const Container = styled.div`
 
   @media screen and (min-width: 768px) {
     padding: 0 64px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 0 165px;
+  }
+`;
+
+const DesktopContainer = styled.div`
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    justify-content: space-between;
   }
 `;

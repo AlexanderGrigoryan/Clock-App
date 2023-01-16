@@ -51,7 +51,10 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* padding-top: 119px; */
+  }
+
+  @media screen and (min-width: 1280px) {
+    min-height: 400px;
   }
 `;
 

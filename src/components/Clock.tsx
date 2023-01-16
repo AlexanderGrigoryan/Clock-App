@@ -55,6 +55,13 @@ const GreetingsText = styled.p`
     letter-spacing: 3.5999999046325684px;
     display: none;
   }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 4px;
+    display: none;
+  }
 `;
 
 const GreetingsTextDesktop = styled.p`
@@ -70,6 +77,12 @@ const GreetingsTextDesktop = styled.p`
     line-height: 28px;
     letter-spacing: 3.5999999046325684px;
     display: block;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 4px;
   }
 `;
 
@@ -90,6 +103,12 @@ const TimeClock = styled.p`
     line-height: 175px;
     letter-spacing: 4.38px;
   }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 200px;
+    line-height: 200px;
+    letter-spacing: 5px;
+  }
 `;
 
 const TimeZone = styled.p`
@@ -103,6 +122,10 @@ const TimeZone = styled.p`
     font-size: 32px;
     line-height: 28px;
   }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 40px;
+  }
 `;
 
 const Location = styled.p`
@@ -115,5 +138,10 @@ const Location = styled.p`
   @media screen and (min-width: 768px) {
     font-size: 18px;
     letter-spacing: 3.6px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 24px;
+    letter-spacing: 4.8px;
   }
 `;
