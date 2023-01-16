@@ -1,9 +1,11 @@
-import React from "react";
 import styled from "styled-components";
 
-interface Props {}
+interface Props {
+  info: any;
+}
 
 function Details(props: Props) {
+  const { info } = props;
   return (
     <Container>
       <Content>
@@ -11,21 +13,21 @@ function Details(props: Props) {
           <FlexBlock>
             <Category>
               <Title>CURRENT TIMEZONE</Title>
-              <Text>Europe/London</Text>
+              <Text>{info.timezone}</Text>
             </Category>
             <Category>
               <Title>Day of the year</Title>
-              <Text>295</Text>
+              <Text>{info.day_of_year}</Text>
             </Category>
           </FlexBlock>
           <FlexBlock>
             <Category>
               <Title>Day of the week</Title>
-              <Text>5</Text>
+              <Text>{info.day_of_week}</Text>
             </Category>
             <Category>
               <Title>Week number</Title>
-              <Text>42</Text>
+              <Text>{info.week_number}</Text>
             </Category>
           </FlexBlock>
         </Titles>

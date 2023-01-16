@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { QuotesType } from "../types";
 import RefreshIcon from "../img/desktop/icon-refresh.svg";
@@ -29,7 +28,6 @@ const Container = styled.div`
   display: flex;
   column-gap: 16.67px;
   width: 100%;
-  /* justify-content: space-between; */
   padding-top: 32px;
   margin-bottom: 128px;
 

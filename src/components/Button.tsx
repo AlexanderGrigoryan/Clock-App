@@ -20,7 +20,7 @@ function Button(props: Props) {
             <ArrowDown src={IconDown} alt="arrow down icon" />
           </Circle>
         ) : (
-          <ArrowUp src={IconUp} alt="arrow up icon" />
+          <ArrowUp src={IconUp} alt="arrow down icon" />
         )}
       </DetailsButton>
     </Container>
@@ -97,6 +97,10 @@ const Circle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &:hover {
+    background: #999999;
+  }
 
   @media screen and (min-width: 768px) {
     width: 40px;

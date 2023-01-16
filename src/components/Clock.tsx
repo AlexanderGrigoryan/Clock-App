@@ -1,22 +1,49 @@
-import React from "react";
 import styled from "styled-components";
 import Sun from "../img/desktop/icon-sun.svg";
+import Moon from "../img/desktop/icon-moon.svg";
 
-function Clock() {
+interface Props {
+  ip: any;
+  newHours: string | number;
+  newMinutes: string | number;
+}
+
+function Clock(props: Props) {
+  const { ip, newHours, newMinutes } = props;
+
   return (
     <Container>
       <Greetings>
-        <Icon src={Sun} alt="sun icon" />
-        <GreetingsText>GOOD MORNING</GreetingsText>
+        {newHours >= "05" && newHours <= "17" ? (
+          <Icon src={Sun} alt="sun icon" />
+        ) : (
+          <Icon src={Moon} alt="moon icon" />
+        )}
+
+        <GreetingsText>
+          {newHours >= "05" && newHours <= "11"
+            ? "GOOD MORNING"
+            : newHours >= "12" && newHours <= "17"
+            ? "GOOD AFTERNOON"
+            : "GOOD EVENING"}
+        </GreetingsText>
         <GreetingsTextDesktop>
-          GOOD MORNING, IT'S CURRENTLY
+          {newHours >= "05" && newHours <= "11"
+            ? "GOOD MORNING"
+            : newHours >= "12" && newHours <= "17"
+            ? "GOOD AFTERNOON"
+            : "GOOD EVENING"}
+          , IT'S CURRENTLY
         </GreetingsTextDesktop>
       </Greetings>
       <Time>
-        <TimeClock>11:37</TimeClock>
+        <TimeClock>{newHours + ":" + newMinutes}</TimeClock>
         <TimeZone>BST</TimeZone>
       </Time>
-      <Location>IN LONDON, UK</Location>
+      <Location>
+        IN {ip.data.location.city.name.toUpperCase()},{" "}
+        {ip.data.location.country.name.toUpperCase()}
+      </Location>
     </Container>
   );
 }
