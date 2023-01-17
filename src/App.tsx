@@ -20,13 +20,13 @@ function App() {
   const [ip, setIp] = useState<any>(null);
   const [info, setInfo] = useState<any>(null);
   const [detailsOpener, setDetailsOpener] = useState<boolean>(false);
-
+  
   const newDate = new Date(info?.datetime);
   const hours = newDate.getHours();
   const minutes = newDate.getMinutes();
   const newHours = hours <= 9 ? "0" + hours : hours;
   const newMinutes = minutes <= 9 ? "0" + minutes : minutes;
-
+  
   const getQuote = async () => {
     const receivedQuote = await axios.get("https://api.quotable.io/random");
     setQuote(receivedQuote.data);
@@ -37,20 +37,17 @@ function App() {
       "https://api.ipbase.com/v2/info?apikey=ntP1Z9qEtb1UGtC1uG3COxtHZEumaBaLao3rx3sL"
     );
     setIp(response.data);
-    localStorage.setItem("data", JSON.stringify(response.data.data));
   };
 
   useEffect(() => {
     getQuote();
-    // getIp();
-    const localData = localStorage.getItem("data");
-    setIp(JSON.parse(localData || ""));
+    getIp();
   }, []);
 
   useEffect(() => {
     const getDetails = async () => {
       const response = await axios.get(
-        "http://worldtimeapi.org/api/timezone/" + ip.timezone.id.toString()
+        "http://worldtimeapi.org/api/timezone/" + ip.data.timezone.id.toString()
       );
       setInfo(response.data);
     };
@@ -60,7 +57,6 @@ function App() {
     }
   }, [ip]);
 
-  console.log(info);
   return (
     <>
       <GlobalStyles />
@@ -79,7 +75,7 @@ function App() {
           <DesktopContainer>
             {ip && info ? (
               <Clock
-                ip={{ data: ip }}
+                ip={ip}
                 newHours={newHours}
                 newMinutes={newMinutes}
               />
